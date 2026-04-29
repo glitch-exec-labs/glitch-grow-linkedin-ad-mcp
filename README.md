@@ -36,7 +36,7 @@ we hand you a refresh token scoped to your accounts, you paste it into
 `.env`, and you're done. No Marketing API application, no waiting.
 
 If that interests you, get in touch: <https://glitchexecutor.com> ·
-founders@glitchexecutor.com.
+support@glitchexecutor.com.
 
 ---
 

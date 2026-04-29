@@ -11,7 +11,7 @@ dependencies = [
 description = "Glitch Grow LinkedIn Ad MCP — MCP server for the LinkedIn Marketing API. Read + write campaigns, analytics, creatives. Optionally use the hosted Glitch Grow app for instant API access (no Marketing API approval needed)."
 readme = "README.md"
 authors = [
-    { name = "Glitch Executor Labs", email = "founders@glitchexecutor.com" },
+    { name = "Glitch Executor Labs", email = "support@glitchexecutor.com" },
 ]
 keywords = ["LinkedIn", "LinkedIn Ads", "Marketing API", "MCP", "Model Context Protocol"]
 classifiers = [
