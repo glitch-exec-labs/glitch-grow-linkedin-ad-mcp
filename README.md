@@ -35,7 +35,7 @@ Concretely: you authorize the Glitch Grow app once on your LinkedIn,
 we hand you a refresh token scoped to your accounts, you paste it into
 `.env`, and you're done. No Marketing API application, no waiting.
 
-If that interests you, get in touch: <https://glitchexecutor.com> ·
+If that interests you, get in touch: <https://grow.glitchexecutor.com> ·
 support@glitchexecutor.com.
 
 ---
@@ -163,7 +163,7 @@ MIT — see [LICENSE](LICENSE).
 
 ## About
 
-Built and maintained by [Glitch Executor Labs](https://glitchexecutor.com).
+Built and maintained by [Glitch Grow](https://grow.glitchexecutor.com) (Glitch Executor Labs).
 The Glitch Grow LinkedIn Ad MCP is hardened against real LinkedIn
 Marketing API behavior in production. If you hit a restli encoding edge
 case we missed, please open an issue with the offending URL — we'll
