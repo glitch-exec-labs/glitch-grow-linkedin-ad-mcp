@@ -154,8 +154,12 @@ Access"** sharing. To run this MCP across multiple advertisers:
 ## Status
 
 Read API + write API for groups + campaigns are battle-tested in
-production. Creative creation (uploading images/videos and binding them
-to campaigns) is the next surface to cover — PRs welcome.
+production. Sponsored creative creation (image/video upload via
+`initializeUpload` → bind to `/rest/creatives` → attach to a campaign)
+uses the same upload pattern Glitch Grow already runs against
+`/rest/documents` and `/rest/posts` for organic publishing — porting
+that to the sponsored-ad surface is on the roadmap. PRs welcome in the
+meantime.
 
 ## License
 
