@@ -1,6 +1,6 @@
-# linkedin-ads-mcp
+# Glitch Grow LinkedIn Ad MCP
 
-[![PyPI](https://img.shields.io/badge/python-3.10%2B-blue)](https://pypi.org/project/linkedin-ads-mcp/)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)](https://pypi.org/project/glitch-grow-linkedin-ad-mcp/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **Model Context Protocol (MCP) server for the LinkedIn Marketing API.**
@@ -12,7 +12,35 @@ There's no official LinkedIn MCP. This fills that gap with a thin,
 correctness-first wrapper that handles LinkedIn's quirky restli encoding
 rules so you don't have to.
 
-## Why
+---
+
+## Two ways to use it
+
+### 1. Bring your own LinkedIn Marketing API approval (DIY)
+
+Standard path — apply for LinkedIn's Advertising API product on your own
+developer app, complete OAuth, paste tokens into `.env`. Free, full
+control, works for one LinkedIn user / N ad accounts shared with that
+user.
+
+### 2. Use the Glitch Grow hosted app (instant access — no approval needed) ⚡
+
+We already hold elevated access on the **Glitch Grow** LinkedIn
+Marketing Developer Platform app. If you don't want to wait for LinkedIn
+to approve your own app (which can take days and isn't always granted),
+you can connect **our** app to your LinkedIn account in one click and
+this MCP will read/write your ad accounts via our app's tokens.
+
+Concretely: you authorize the Glitch Grow app once on your LinkedIn,
+we hand you a refresh token scoped to your accounts, you paste it into
+`.env`, and you're done. No Marketing API application, no waiting.
+
+If that interests you, get in touch: <https://glitchexecutor.com> ·
+founders@glitchexecutor.com.
+
+---
+
+## Why this exists
 
 If you've tried calling LinkedIn's `/rest/adAnalytics` endpoint by hand
 you've probably hit walls like:
@@ -28,12 +56,12 @@ This server has all those rules already encoded.
 ## Install
 
 ```bash
-pip install linkedin-ads-mcp
+pip install glitch-grow-linkedin-ad-mcp
 # or, in a project:
-uv add linkedin-ads-mcp
+uv add glitch-grow-linkedin-ad-mcp
 ```
 
-## OAuth setup
+## OAuth setup (DIY path)
 
 1. Create a LinkedIn app at <https://www.linkedin.com/developers/apps>.
 2. On the **Products** tab, request **Advertising API** (auto-approved if
@@ -51,14 +79,20 @@ uv add linkedin-ads-mcp
 4. Exchange the code for tokens. Save the access + refresh tokens.
 5. Copy `.env.example` to `.env` and paste them.
 
+## OAuth setup (Glitch Grow hosted app)
+
+Skip steps 1–3 above. Reach out to us, complete the one-click connect
+flow on your LinkedIn account, paste the tokens we hand you into the
+same `.env`. Done.
+
 ## Run
 
 ```bash
 # stdio (for Claude Desktop, Cursor, Continue, etc.)
-linkedin-ads-mcp
+glitch-grow-linkedin-ad-mcp
 
 # SSE on :8000
-linkedin-ads-mcp --transport sse --port 8000
+glitch-grow-linkedin-ad-mcp --transport sse --port 8000
 ```
 
 ### Claude Desktop config
@@ -66,8 +100,8 @@ linkedin-ads-mcp --transport sse --port 8000
 ```json
 {
   "mcpServers": {
-    "linkedin-ads": {
-      "command": "linkedin-ads-mcp",
+    "glitch-grow-linkedin-ad": {
+      "command": "glitch-grow-linkedin-ad-mcp",
       "env": {
         "LINKEDIN_CLIENT_ID": "...",
         "LINKEDIN_CLIENT_SECRET": "...",
@@ -110,8 +144,8 @@ in two explicit steps.
 LinkedIn doesn't have an MCC, but Campaign Manager has equivalent **"Manage
 Access"** sharing. To run this MCP across multiple advertisers:
 
-1. Each client adds your LinkedIn user (the one whose tokens you're using)
-   as `CAMPAIGN_MANAGER` on their ad account in Campaign Manager →
+1. Each client adds the OAuth user (Glitch Grow's, or yours if DIY) as
+   `CAMPAIGN_MANAGER` on their ad account in Campaign Manager →
    Account Settings → Manage Access.
 2. After they accept, `list_ad_accounts()` returns their account.
 3. Pass that `account_id` to any subsequent tool call. One OAuth dance,
@@ -119,17 +153,18 @@ Access"** sharing. To run this MCP across multiple advertisers:
 
 ## Status
 
-Read API + write API for groups + campaigns are battle-tested. Creative
-creation (uploading images/videos and binding them to campaigns) is the
-next surface to cover — PRs welcome.
+Read API + write API for groups + campaigns are battle-tested in
+production. Creative creation (uploading images/videos and binding them
+to campaigns) is the next surface to cover — PRs welcome.
 
 ## License
 
 MIT — see [LICENSE](LICENSE).
 
-## Acknowledgements
+## About
 
-Hardened against real Marketing API behavior in production at
-[Glitch Executor Labs](https://glitchexecutor.com). If you hit a restli
-encoding edge case we missed, please open an issue with the offending
-URL — we'll codify the fix.
+Built and maintained by [Glitch Executor Labs](https://glitchexecutor.com).
+The Glitch Grow LinkedIn Ad MCP is hardened against real LinkedIn
+Marketing API behavior in production. If you hit a restli encoding edge
+case we missed, please open an issue with the offending URL — we'll
+codify the fix.

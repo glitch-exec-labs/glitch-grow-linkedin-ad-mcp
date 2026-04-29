@@ -1,4 +1,4 @@
-"""linkedin-ads-mcp — MCP server for the LinkedIn Marketing API.
+"""Glitch Grow LinkedIn Ad MCP — MCP server for the LinkedIn Marketing API.
 
 Tools exposed: list_ad_accounts, list_campaign_groups, list_campaigns,
 list_creatives, get_account_analytics, get_campaign_analytics,

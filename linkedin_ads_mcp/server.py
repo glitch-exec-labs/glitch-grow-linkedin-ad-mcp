@@ -1,14 +1,19 @@
-"""FastMCP server exposing LinkedIn Ads tools.
+"""Glitch Grow LinkedIn Ad MCP — FastMCP server exposing LinkedIn Ads tools.
 
 Run:
-  $ linkedin-ads-mcp                     # stdio, default
-  $ linkedin-ads-mcp --transport sse     # SSE on :8000
-  $ python -m linkedin_ads_mcp.server    # equivalent to first form
+  $ glitch-grow-linkedin-ad-mcp                     # stdio, default
+  $ glitch-grow-linkedin-ad-mcp --transport sse     # SSE on :8000
+  $ python -m linkedin_ads_mcp.server               # equivalent to first
 
 Add to Claude Desktop / Cursor / any MCP client by pointing it at the
 binary. Required env: LINKEDIN_CLIENT_ID, LINKEDIN_CLIENT_SECRET,
 LINKEDIN_REFRESH_TOKEN. Optional: LINKEDIN_ACCESS_TOKEN (seeded),
 LINKEDIN_API_VERSION (default 202604).
+
+If you don't want to apply for LinkedIn Marketing API access yourself,
+the Glitch Grow hosted app already has elevated approval — connect it to
+your LinkedIn and we hand you a refresh token scoped to your accounts.
+See README for details.
 """
 from __future__ import annotations
 
@@ -21,7 +26,7 @@ from fastmcp import FastMCP
 
 from linkedin_ads_mcp.client import LinkedInError, request
 
-mcp = FastMCP("linkedin-ads-mcp")
+mcp = FastMCP("glitch-grow-linkedin-ad-mcp")
 
 
 # ---------- helpers --------------------------------------------------------

@@ -1,5 +1,5 @@
 [project]
-name = "linkedin-ads-mcp"
+name = "glitch-grow-linkedin-ad-mcp"
 version = "0.1.0"
 requires-python = ">=3.10"
 license = "MIT"
@@ -8,7 +8,7 @@ dependencies = [
     "mcp[cli]>=1.2.0",
     "fastmcp>=3.2.0",
 ]
-description = "MCP server for the LinkedIn Marketing API (Ads). Read + write campaigns, analytics, creatives."
+description = "Glitch Grow LinkedIn Ad MCP — MCP server for the LinkedIn Marketing API. Read + write campaigns, analytics, creatives. Optionally use the hosted Glitch Grow app for instant API access (no Marketing API approval needed)."
 readme = "README.md"
 authors = [
     { name = "Glitch Executor Labs", email = "founders@glitchexecutor.com" },
@@ -25,12 +25,12 @@ classifiers = [
 ]
 
 [project.urls]
-homepage   = "https://github.com/glitch-exec-labs/linkedin-ads-mcp"
-repository = "https://github.com/glitch-exec-labs/linkedin-ads-mcp.git"
-issues     = "https://github.com/glitch-exec-labs/linkedin-ads-mcp/issues"
+homepage   = "https://github.com/glitch-exec-labs/glitch-grow-linkedin-ad-mcp"
+repository = "https://github.com/glitch-exec-labs/glitch-grow-linkedin-ad-mcp.git"
+issues     = "https://github.com/glitch-exec-labs/glitch-grow-linkedin-ad-mcp/issues"
 
 [project.scripts]
-linkedin-ads-mcp = "linkedin_ads_mcp.server:main"
+glitch-grow-linkedin-ad-mcp = "linkedin_ads_mcp.server:main"
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0", "ruff>=0.5"]
